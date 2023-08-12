@@ -15,6 +15,7 @@ keyboard = telebot.types.InlineKeyboardMarkup()
 keyboard.add(telebot.types.InlineKeyboardButton(text='Погода', callback_data='weather'))
 keyboard.add(telebot.types.InlineKeyboardButton(text='Анекдот', callback_data='anekdot'))
 keyboard.add(telebot.types.InlineKeyboardButton(text='Фильм', callback_data='movie'))
+keyboard.add(telebot.types.InlineKeyboardButton(text='Новости', callback_data='news'))
 # создаём кнопки с жанрами
 keyboard_movie = telebot.types.InlineKeyboardMarkup()
 for g in botlib.genres:
@@ -28,6 +29,7 @@ markup.row('/start', '/stop')
 @bot.message_handler(commands=['start'])
 def start_mes(info):
     print(info.from_user.username, 'послал(а) команду /start')
+    bot.send_message(info.chat.id, 'Добро пожаловать в бота-помощника', reply_markup=markup)  # создаём меню
     bot.send_message(info.chat.id, 'Выберите команду', reply_markup=keyboard)  # выводим клавиатуру в чате
 
 # скрываем меню
@@ -56,6 +58,10 @@ def callback(call):
             bot.send_message(call.message.chat.id, 'Ищу фильм...')
             poster, info = botlib.movie(call.data)
             bot.send_photo(call.message.chat.id, poster, info)
+            bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
+        elif call.data == 'news':
+            bot.send_message(call.message.chat.id, 'Ищу новости...')
+            bot.send_message(call.message.chat.id, botlib.news())
             bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
         else:
             mes = 'Неверная команда'

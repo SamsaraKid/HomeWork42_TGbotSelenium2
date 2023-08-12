@@ -16,32 +16,40 @@ def driverprepare():
 
 
 def weather():
+    pogodastring = ''
     driver = driverprepare()
     print('Ищем погоду...')
-    driver.get('https://yandex.ru/pogoda/moscow')
-    city = driver.find_element(By.XPATH, '//*[@id="main_title"]').text
-    pogoda1 = driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/a').text
-    pogoda2 = driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[6]').text
-    pogoda = (pogoda1 + '\n' + pogoda2).split('\n')
-    pogodastring = city + \
-                   '\nТемпература: ' + pogoda[0] + ' (ощущается ' + pogoda[3] + ')' + \
-                   '\nНебо: ' + pogoda[1] + \
-                   '\nВетер: ' + pogoda[4] + \
-                   '\nВлажность: ' + pogoda[5] + \
-                   '\nДавление: ' + pogoda[6]
-    print(pogodastring)
+    try:
+        driver.get('https://yandex.ru/pogoda/moscow')
+        city = driver.find_element(By.XPATH, '//*[@id="main_title"]').text
+        pogoda1 = driver.find_element(By.CLASS_NAME, 'fact__basic').text
+        pogoda2 = driver.find_element(By.CLASS_NAME, 'fact__props').text
+        pogoda = (pogoda1 + '\n' + pogoda2).split('\n')
+        pogodastring = city + \
+                       '\nТемпература: ' + pogoda[0] + ' (ощущается ' + pogoda[3] + ')' + \
+                       '\nНебо: ' + pogoda[1] + \
+                       '\nВетер: ' + pogoda[4] + \
+                       '\nВлажность: ' + pogoda[5] + \
+                       '\nДавление: ' + pogoda[6]
+        print(pogodastring)
+    except Exception as e:
+        print(e)
     driver.close()
     return pogodastring
 
 
 def anekdot():
+    text = ''
     driver = driverprepare()
     print('Ищем анекдот...')
-    driver.get('https://www.anekdot.ru/random/anekdot/')
-    anekdotes = driver.find_elements(By.CLASS_NAME, 'text')
-    anekdot = random.choice(anekdotes)
-    text = anekdot.text
-    print(text)
+    try:
+        driver.get('https://www.anekdot.ru/random/anekdot/')
+        anekdotes = driver.find_elements(By.CLASS_NAME, 'text')
+        anekdot = random.choice(anekdotes)
+        text = anekdot.text
+        print(text)
+    except Exception as e:
+        print(e)
     driver.close()
     return text
 
@@ -76,6 +84,22 @@ def movie(genre):
         print(poster)
     except Exception as e:
         print(e)
-
     driver.close()
     return poster, info
+
+
+def news():
+    news = ''
+    driver = driverprepare()
+    print('Ищем новости...')
+    try:
+        driver.get('https://lenta.ru/')
+        news = driver.find_element(By.CLASS_NAME, 'last24').find_elements(By.TAG_NAME, 'a')
+        text = list(map(lambda x: x.text, news))
+        link = list(map(lambda x: x.get_attribute('href'), news))
+        news = '\n\n'.join(list(map(lambda x, y: x + '\n' + y, text, link)))
+        print(news)
+    except Exception as e:
+        print(e)
+    driver.close()
+    return news
