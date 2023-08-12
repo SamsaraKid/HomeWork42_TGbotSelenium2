@@ -4,7 +4,6 @@ from selenium.webdriver.firefox.options import Options
 import random
 import time
 
-genres = ['Action', 'Animation', 'Comedy', 'Crime', 'Drama', 'Fantasy', 'Horror', 'Sci-Fi']
 
 def driverprepare():
     print('Загружаем драйвер...')
@@ -15,12 +14,21 @@ def driverprepare():
     return driver
 
 
+print('Получаем список жанров с IMDB...')
+driver = driverprepare()
+driver.get('https://www.imdb.com/feature/genre/')
+film_genres = driver.find_elements(By.CLASS_NAME, 'ipc-chip-list__scroller')[1]
+genres = list(map(lambda x: x.text, film_genres.find_elements(By.TAG_NAME, 'a')))
+print('Список жанров получен')
+driver.close()
+
+
 def weather():
     pogodastring = ''
     driver = driverprepare()
     print('Ищем погоду...')
     try:
-        driver.get('https://yandex.ru/pogoda/moscow')
+        driver.get('https://yandex.ru/pogoda/')
         city = driver.find_element(By.XPATH, '//*[@id="main_title"]').text
         pogoda1 = driver.find_element(By.CLASS_NAME, 'fact__basic').text
         pogoda2 = driver.find_element(By.CLASS_NAME, 'fact__props').text
@@ -66,21 +74,21 @@ def movie(genre):
         movie = random.choice(movies)
         info = movie.text
         info = info[info.find(' ') + 1:]
-        info = info[:info.rfind('\n')]
-        info = info.replace('Rate this', '★').replace('\n', '\n\n')
+        info = info[:info.rfind('\nVotes')]
+        rate = info[info.find(' Rate this') - 3:info.find(' Rate this')].replace(',', '.')
+        rate = round(float(rate))
+        info = info.replace('Rate this', '⭐️' * rate).replace('\n', '\n\n')
         print(info)
-
         print('Переходим по ссылке на страницу фильма...')
         link = movie.find_element(By.CLASS_NAME, 'lister-item-header').find_element(By.TAG_NAME, 'a')
         time.sleep(1)
         link.click()
         print('Перешли по ссылке, делаем паузу...')
         time.sleep(1)
-
-        print('Переходим по ссылке на постер фильма...')
-        driver.find_elements(By.CLASS_NAME, 'ipc-lockup-overlay')[0].click()
-        print('Извлекаем постер...')
-        poster = driver.find_elements(By.TAG_NAME, 'img')[0].get_attribute('src')
+        print('Извлекаем постер, устанавливаем качество картинки')
+        poster = driver.find_elements(By.TAG_NAME, 'img')
+        poster = poster[0].get_attribute('src')
+        poster = poster[:poster.find('._V1')] + '._V1_QL75_UX1520_.jpg'
         print(poster)
     except Exception as e:
         print(e)

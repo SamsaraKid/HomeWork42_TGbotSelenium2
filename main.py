@@ -12,10 +12,10 @@ print('Бот создан')
 
 # создаём кнопки клавиатуры в чате
 keyboard = telebot.types.InlineKeyboardMarkup()
-keyboard.add(telebot.types.InlineKeyboardButton(text='Погода', callback_data='weather'))
-keyboard.add(telebot.types.InlineKeyboardButton(text='Анекдот', callback_data='anekdot'))
-keyboard.add(telebot.types.InlineKeyboardButton(text='Фильм', callback_data='movie'))
-keyboard.add(telebot.types.InlineKeyboardButton(text='Новости', callback_data='news'))
+keyboard.add(telebot.types.InlineKeyboardButton(text='🌤 Погода', callback_data='weather'))
+keyboard.add(telebot.types.InlineKeyboardButton(text='🤦 Анекдот', callback_data='anekdot'))
+keyboard.add(telebot.types.InlineKeyboardButton(text='🎞 Фильм', callback_data='movie'))
+keyboard.add(telebot.types.InlineKeyboardButton(text='📰 Новости', callback_data='news'))
 # создаём кнопки с жанрами
 keyboard_movie = telebot.types.InlineKeyboardMarkup()
 for g in botlib.genres:
@@ -25,6 +25,7 @@ for g in botlib.genres:
 markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
 markup.row('/start', '/stop')
 
+
 # старт бота
 @bot.message_handler(commands=['start'])
 def start_mes(info):
@@ -32,12 +33,14 @@ def start_mes(info):
     bot.send_message(info.chat.id, 'Добро пожаловать в бота-помощника', reply_markup=markup)  # создаём меню
     bot.send_message(info.chat.id, 'Выберите команду', reply_markup=keyboard)  # выводим клавиатуру в чате
 
+
 # скрываем меню
 @bot.message_handler(commands=['stop'])
 def stop_mes(info):
     print(info.from_user.username, 'послал(а) команду /stop')
     markup_hide = telebot.types.ReplyKeyboardRemove()
     bot.send_message(info.chat.id, '/start для возобновления работы', reply_markup=markup_hide)
+
 
 # обработка команд от кнопок в чате
 @bot.callback_query_handler(func=lambda call: True)
