@@ -1,6 +1,8 @@
 import telebot
 import botlib
 
+inprogress = False
+
 # читаем токен из файла
 file = open('token', 'r')
 token = file.readline()
@@ -50,35 +52,39 @@ def stop_mes(info):
 # обработка команд от кнопок в чате
 @bot.callback_query_handler(func=lambda call: True)
 def callback(call):
+    global inprogress
     print(call.from_user.username, 'послал(а) команду', call.data)
-    try:
-        if call.data == 'weather':
-            bot.send_message(call.message.chat.id, 'Проверяю погоду...')
-            bot.send_message(call.message.chat.id, botlib.weather())
+    if not inprogress:
+        inprogress = True
+        try:
+            if call.data == 'weather':
+                bot.send_message(call.message.chat.id, 'Проверяю погоду...')
+                bot.send_message(call.message.chat.id, botlib.weather())
+                bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
+            elif call.data == 'anekdot':
+                bot.send_message(call.message.chat.id, 'Ищу анекдот...')
+                bot.send_message(call.message.chat.id, botlib.anekdot())
+                bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
+            elif call.data == 'movie':
+                bot.send_message(call.message.chat.id, 'Выберите жанр', reply_markup=keyboard_movie)
+            elif call.data in botlib.genres:
+                bot.send_message(call.message.chat.id, 'Вы выбрали жанр ' + call.data)
+                bot.send_message(call.message.chat.id, 'Ищу фильм...')
+                poster, info = botlib.movie(call.data)
+                bot.send_photo(call.message.chat.id, poster, info)
+                bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
+            elif call.data == 'news':
+                bot.send_message(call.message.chat.id, 'Ищу новости...')
+                bot.send_message(call.message.chat.id, botlib.news())
+                bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
+            else:
+                mes = 'Неверная команда'
+                bot.send_message(call.message.chat.id, mes)
+        except Exception as e:
+            print(e)
+            bot.send_message(call.message.chat.id, 'Произошла ошибка, попробуйте ещё раз')
             bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
-        elif call.data == 'anekdot':
-            bot.send_message(call.message.chat.id, 'Ищу анекдот...')
-            bot.send_message(call.message.chat.id, botlib.anekdot())
-            bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
-        elif call.data == 'movie':
-            bot.send_message(call.message.chat.id, 'Выберите жанр', reply_markup=keyboard_movie)
-        elif call.data in botlib.genres:
-            bot.send_message(call.message.chat.id, 'Вы выбрали жанр ' + call.data)
-            bot.send_message(call.message.chat.id, 'Ищу фильм...')
-            poster, info = botlib.movie(call.data)
-            bot.send_photo(call.message.chat.id, poster, info)
-            bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
-        elif call.data == 'news':
-            bot.send_message(call.message.chat.id, 'Ищу новости...')
-            bot.send_message(call.message.chat.id, botlib.news())
-            bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
-        else:
-            mes = 'Неверная команда'
-            bot.send_message(call.message.chat.id, mes)
-    except Exception as e:
-        print(e)
-        bot.send_message(call.message.chat.id, 'Произошла ошибка, попробуйте ещё раз')
-        bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
+        inprogress = False
 
 
 while True:

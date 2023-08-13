@@ -3649,7 +3649,8 @@ Read port: 56530
 console.error: ({})
 DevTools listening on ws://127.0.0.1:56521/devtools/browser/a3c27d8d-96b1-46d4-a039-67cd5d67927e
 JavaScript error: https://api.imotech.video/ad/events.js?pixel_id=903425674216218112, line 1: TypeError: e.className.split is not a function
-1691870137026	geckodriver	INFO	Listening on 127.0.0.1:56751
+Exiting due to channel error.
+Listening on 127.0.0.1:56751
 1691870140110	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "56752" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\koany\\AppData\\Local\\Temp\\rust_mozprofileWKbVNF"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
@@ -4194,7 +4195,8 @@ Read port: 61402
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.error: ({})
 DevTools listening on ws://127.0.0.1:61348/devtools/browser/cd265663-7a62-471a-be0b-928c56fe5439
-1691926675421	geckodriver	INFO	Listening on 127.0.0.1:63891
+Exiting due to channel error.
+Listening on 127.0.0.1:63891
 1691926678473	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "63892" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\koany\\AppData\\Local\\Temp\\rust_mozprofileBISg69"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
@@ -6237,4 +6239,162 @@ DevTools listening on ws://127.0.0.1:61727/devtools/browser/9c88bf67-f0a0-4edb-a
 1691936918928	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
 1691936918929	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
 1691936919733	Marionette	INFO	Stopped listening on port 61734
+Dynamically enable window occlusion 1
+1691937632540	geckodriver	INFO	Listening on 127.0.0.1:62309
+1691937635599	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "62310" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\koany\\AppData\\Local\\Temp\\rust_mozprofileNu5LLp"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691937635835	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1691937635887	Marionette	INFO	Listening on port 62318
+WebDriver BiDi listening on ws://127.0.0.1:62310
+Read port: 62318
+1691937636037	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:62310/devtools/browser/7a23a96c-8df6-4282-8c8b-eaeecde6fd44
+1691937638587	Marionette	INFO	Stopped listening on port 62318
+Dynamically enable window occlusion 1
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 720: TypeError: this.tablesData[table] is undefined
+JavaScript error: resource://gre/actors/ContentMetaChild.sys.mjs, line 179: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+1691937661162	geckodriver	INFO	Listening on 127.0.0.1:62378
+1691937664225	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "62379" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\koany\\AppData\\Local\\Temp\\rust_mozprofileWgRfcY"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691937664450	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1691937664499	Marionette	INFO	Listening on port 62386
+WebDriver BiDi listening on ws://127.0.0.1:62379
+Read port: 62386
+1691937664653	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:62379/devtools/browser/3475d2c5-24e5-4257-9057-2379e7362f44
+1691937666266	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1691937666266	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1691937672928	Marionette	INFO	Stopped listening on port 62386
+JavaScript warning: https://dqpnq362acqdi.cloudfront.net/_next/static/chunks/framework-735a6db3a2e8e4c5.js, line 1: Script terminated by timeout at:
+9670/w.port1.onmessage@https://dqpnq362acqdi.cloudfront.net/_next/static/chunks/framework-735a6db3a2e8e4c5.js:1:139938
+
+Dynamically enable window occlusion 1
+[Parent 19168, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[RDD 3672, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+1691960405406	geckodriver	INFO	Listening on 127.0.0.1:64911
+1691960408490	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "64912" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\koany\\AppData\\Local\\Temp\\rust_mozprofileGwxMiX"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691960408892	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1691960408962	Marionette	INFO	Listening on port 64920
+WebDriver BiDi listening on ws://127.0.0.1:64912
+Read port: 64920
+1691960409150	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:64912/devtools/browser/20be3b09-e51b-4b3b-9f52-73009470fed0
+1691960412172	Marionette	INFO	Stopped listening on port 64920
+Dynamically enable window occlusion 1
+1691960462964	geckodriver	INFO	Listening on 127.0.0.1:64975
+1691960466019	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "64976" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\koany\\AppData\\Local\\Temp\\rust_mozprofileiRrIy7"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691960466241	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1691960466289	Marionette	INFO	Listening on port 64983
+WebDriver BiDi listening on ws://127.0.0.1:64976
+Read port: 64983
+1691960466444	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:64976/devtools/browser/be16044b-cee0-46af-aac0-a4d9eeb0151e
+1691960468928	Marionette	INFO	Stopped listening on port 64983
+Dynamically enable window occlusion 1
+1691960474857	geckodriver	INFO	Listening on 127.0.0.1:65029
+1691960477913	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "65030" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\koany\\AppData\\Local\\Temp\\rust_mozprofileDSTUvB"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691960478134	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1691960478181	Marionette	INFO	Listening on port 65040
+WebDriver BiDi listening on ws://127.0.0.1:65030
+Read port: 65040
+1691960478340	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:65030/devtools/browser/46a15480-da03-4aab-8714-14057d785772
+1691960480071	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1691960480071	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1691960486635	Marionette	INFO	Stopped listening on port 65040
+JavaScript warning: https://dqpnq362acqdi.cloudfront.net/_next/static/chunks/framework-735a6db3a2e8e4c5.js, line 1: Script terminated by timeout at:
+Zt@https://dqpnq362acqdi.cloudfront.net/_next/static/chunks/framework-735a6db3a2e8e4c5.js:1:43387
+
+Dynamically enable window occlusion 1
+[Parent 696, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[RDD 7576, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+1691960498609	geckodriver	INFO	Listening on 127.0.0.1:65108
+1691960501665	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "65109" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\koany\\AppData\\Local\\Temp\\rust_mozprofilefuFRZn"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691960501890	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1691960501938	Marionette	INFO	Listening on port 65116
+WebDriver BiDi listening on ws://127.0.0.1:65109
+Read port: 65116
+1691960502092	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:65109/devtools/browser/a80018eb-1538-42ba-a0a3-00417e97022b
+1691960503677	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1691960503677	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1691960519780	Marionette	INFO	Stopped listening on port 65116
+Dynamically enable window occlusion 1
+1691960532443	geckodriver	INFO	Listening on 127.0.0.1:65187
+1691960535513	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "65188" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\koany\\AppData\\Local\\Temp\\rust_mozprofiletcbQ6n"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691960535738	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1691960535785	Marionette	INFO	Listening on port 65195
+WebDriver BiDi listening on ws://127.0.0.1:65188
+Read port: 65195
+1691960535943	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:65188/devtools/browser/2dd7b184-73e4-4b66-8435-214994ce9e69
+1691960537479	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1691960537479	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1691960543030	Marionette	INFO	Stopped listening on port 65195
+JavaScript warning: https://www.imdb.com/title/tt5535276/?ref_=adv_li_tt, line 1803: Script terminated by timeout at:
+z@https://www.imdb.com/title/tt5535276/?ref_=adv_li_tt:1803:216
+r@https://www.imdb.com/title/tt5535276/?ref_=adv_li_tt:1803:370
+
+Dynamically enable window occlusion 1
+1691960569535	geckodriver	INFO	Listening on 127.0.0.1:65265
+1691960572610	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "65266" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\koany\\AppData\\Local\\Temp\\rust_mozprofilewIC47C"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691960572833	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1691960572883	Marionette	INFO	Listening on port 65273
+WebDriver BiDi listening on ws://127.0.0.1:65266
+Read port: 65273
+1691960573032	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:65266/devtools/browser/542751c8-679a-4116-80be-fb4aa925df3f
+1691960574608	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1691960574609	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1691960580768	Marionette	INFO	Stopped listening on port 65273
+JavaScript warning: https://dqpnq362acqdi.cloudfront.net/_next/static/chunks/framework-735a6db3a2e8e4c5.js, line 1: Script terminated by timeout at:
+9670/t.unstable_now@https://dqpnq362acqdi.cloudfront.net/_next/static/chunks/framework-735a6db3a2e8e4c5.js:1:138554
+9670/w.port1.onmessage@https://dqpnq362acqdi.cloudfront.net/_next/static/chunks/framework-735a6db3a2e8e4c5.js:1:139956
+
 Dynamically enable window occlusion 1
