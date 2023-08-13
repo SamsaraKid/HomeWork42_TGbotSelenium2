@@ -42,18 +42,9 @@ def search(driver):
     print('Вот что есть в наличии:')
     print_books(books)
     add_to_cart(books)
-    # while True:
-    #     ans = input('Купить из списка?\n'
-    #                 '\t0 - нет\n'
-    #                 '\t1 - да\n')
-    #     if ans == '0':
-    #         break
-    #     num = int(input('Введите номер книги для добавления в корзину:\n'))
-    #     books[num].location_once_scrolled_into_view
-    #     time.sleep(1)
-    #     books[num].find_element(By.CLASS_NAME, 'action-button').click()
 
 
+# Добавление в корзину
 def add_to_cart(books):
     ans = input('Купить из списка?\n'
                 '\t0 - нет\n'
@@ -89,15 +80,15 @@ def end_shopping(driver):
 
 # Меню
 def menu(driver):
-    ans = int(input('Что вы хотите сделать?\n'
-                    '\t1 - Найти книгу\n'
-                    '\t2 - Открыть корзину\n'
-                    '\t0 - Уйти из магазина\n'))
-    if ans == 1:
+    ans = input('Что вы хотите сделать?\n'
+                '\t1 - Найти книгу\n'
+                '\t2 - Открыть корзину\n'
+                '\t0 - Уйти из магазина\n')
+    if ans == '1':
         search(driver)
-    elif ans == 2:
+    elif ans == '2':
         open_cart(driver)
-    elif ans == 0:
+    elif ans == '0':
         end_shopping(driver)
         return 0
     menu(driver)

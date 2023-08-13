@@ -74,9 +74,13 @@ def movie(genre):
         movie = random.choice(movies)
         info = movie.text
         info = info[info.find(' ') + 1:]
-        info = info[:info.rfind('\nVotes')]
-        rate = info[info.find(' Rate this') - 3:info.find(' Rate this')].replace(',', '.')
-        rate = round(float(rate))
+        if '\nVotes:' in info:
+            info = info[:info.rfind('\nVotes:')]
+        try:
+            rate = info[info.find(' Rate this') - 3:info.find(' Rate this')].replace(',', '.')
+            rate = round(float(rate))
+        except:
+            rate = 1
         info = info.replace('Rate this', '⭐️' * rate).replace('\n', '\n\n')
         print(info)
         print('Переходим по ссылке на страницу фильма...')
