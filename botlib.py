@@ -19,8 +19,13 @@ driver = driverprepare()
 driver.get('https://www.imdb.com/feature/genre/')
 film_genres = driver.find_elements(By.CLASS_NAME, 'ipc-chip-list__scroller')[1]
 genres = list(map(lambda x: x.text, film_genres.find_elements(By.TAG_NAME, 'a')))
+try:
+    genres.pop(genres.index('Documentary'))
+except:
+    pass
 print('Список жанров получен')
 driver.close()
+print('Драйвер отключён')
 
 
 def weather():
@@ -43,6 +48,7 @@ def weather():
     except Exception as e:
         print(e)
     driver.close()
+    print('Драйвер отключён')
     return pogodastring
 
 
@@ -59,6 +65,7 @@ def anekdot():
     except Exception as e:
         print(e)
     driver.close()
+    print('Драйвер отключён')
     return text
 
 
@@ -97,6 +104,7 @@ def movie(genre):
     except Exception as e:
         print(e)
     driver.close()
+    print('Драйвер отключён')
     return poster, info
 
 
@@ -114,4 +122,5 @@ def news():
     except Exception as e:
         print(e)
     driver.close()
+    print('Драйвер отключён')
     return news

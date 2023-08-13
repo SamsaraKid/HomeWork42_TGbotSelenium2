@@ -12,14 +12,19 @@ print('Бот создан')
 
 # создаём кнопки клавиатуры в чате
 keyboard = telebot.types.InlineKeyboardMarkup()
-keyboard.add(telebot.types.InlineKeyboardButton(text='🌤 Погода', callback_data='weather'))
-keyboard.add(telebot.types.InlineKeyboardButton(text='🤦 Анекдот', callback_data='anekdot'))
-keyboard.add(telebot.types.InlineKeyboardButton(text='🎞 Фильм', callback_data='movie'))
-keyboard.add(telebot.types.InlineKeyboardButton(text='📰 Новости', callback_data='news'))
+keyboard.add(telebot.types.InlineKeyboardButton(text='🌤 Погода', callback_data='weather'),
+             telebot.types.InlineKeyboardButton(text='🤦 Анекдот', callback_data='anekdot'))
+keyboard.add(telebot.types.InlineKeyboardButton(text='🎞 Фильм', callback_data='movie'),
+             telebot.types.InlineKeyboardButton(text='📰 Новости', callback_data='news'))
 # создаём кнопки с жанрами
-keyboard_movie = telebot.types.InlineKeyboardMarkup()
-for g in botlib.genres:
-    keyboard_movie.add(telebot.types.InlineKeyboardButton(text=g, callback_data=g))
+btns = []
+btns_row = []
+for i in range(len(botlib.genres)):
+    btns_row.append(telebot.types.InlineKeyboardButton(text=botlib.genres[i], callback_data=botlib.genres[i]))
+    if (i + 1) % 3 == 0 or i == len(botlib.genres) - 1:
+        btns.append(btns_row)
+        btns_row = []
+keyboard_movie = telebot.types.InlineKeyboardMarkup(btns)
 
 # создаём кнопки меню
 markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)

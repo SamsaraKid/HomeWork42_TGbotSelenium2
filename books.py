@@ -76,6 +76,7 @@ def open_cart(driver):
 def end_shopping(driver):
     print('Ждём вас снова!')
     driver.close()
+    print('Драйвер отключён')
 
 
 # Меню
