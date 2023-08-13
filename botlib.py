@@ -23,6 +23,10 @@ try:
     genres.pop(genres.index('Documentary'))
 except:
     pass
+try:
+    genres.pop(genres.index('Short'))
+except:
+    pass
 print('Список жанров получен')
 driver.close()
 print('Драйвер отключён')
