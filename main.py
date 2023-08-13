@@ -63,6 +63,7 @@ def callback(call):
         elif call.data == 'movie':
             bot.send_message(call.message.chat.id, 'Выберите жанр', reply_markup=keyboard_movie)
         elif call.data in botlib.genres:
+            bot.send_message(call.message.chat.id, 'Вы выбрали жанр ' + call.data)
             bot.send_message(call.message.chat.id, 'Ищу фильм...')
             poster, info = botlib.movie(call.data)
             bot.send_photo(call.message.chat.id, poster, info)
