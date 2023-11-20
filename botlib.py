@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 import random
 import time
+import requests
 
 
 def driverprepare():
@@ -128,3 +129,38 @@ def news():
     driver.close()
     print('Драйвер отключён')
     return news
+
+
+
+key = 'f1bbc900ee2e50dc66bebd83f2f0a9f3'
+moscowid = 524901
+
+def currentweather(id=moscowid):
+    try:
+        site = 'https://api.openweathermap.org/data/2.5/weather'
+        res = requests.get(site, params={'id': id, 'appid': key, 'lang': 'ru', 'units': 'metric'})
+        data = res.json()
+        print(data)
+        city = data.get('name')
+        temp = str(round(data['main']['temp'], 1)) + 'C'
+        wind = str(data['wind']['speed']) + 'м/с'
+        weather = data['weather'][0]['description']
+        return f'Температура: {temp}\nСкорость ветра: {wind}\nПогода: {weather}'
+    except Exception as e:
+        print(e)
+
+def forecastweather(id=moscowid):
+    try:
+        site = 'https://api.openweathermap.org/data/2.5/forecast'
+        res = requests.get(site, params={'id': id, 'appid': key, 'lang': 'ru', 'units': 'metric'})
+        data = res.json()
+        print(data)
+        forecast = ''
+        for i in data['list']:
+            if i['dt_txt'][11:13] == '15':
+                forecast += i['dt_txt'][:10] + ' ' + \
+                            str(i['main']['temp']) + 'С' + ' ' + \
+                            i['weather'][0]['description'] + '\n'
+        return forecast
+    except Exception as e:
+        print(e)

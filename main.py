@@ -1,6 +1,7 @@
 import telebot
 import botlib
 
+
 inprogress = False
 
 # читаем токен из файла
@@ -18,6 +19,8 @@ keyboard.add(telebot.types.InlineKeyboardButton(text='🌤 Погода', callba
              telebot.types.InlineKeyboardButton(text='🤦 Анекдот', callback_data='anekdot'))
 keyboard.add(telebot.types.InlineKeyboardButton(text='🎞 Фильм', callback_data='movie'),
              telebot.types.InlineKeyboardButton(text='📰 Новости', callback_data='news'))
+keyboard.add(telebot.types.InlineKeyboardButton(text='🌤 Погода в Москве (API)', callback_data='weathermoscow'))
+keyboard.add(telebot.types.InlineKeyboardButton(text='🌤 Прогноз на 5 дней в Москве (API)', callback_data='forecastmoscow'))
 # создаём кнопки с жанрами
 btns = []
 btns_row = []
@@ -76,6 +79,14 @@ def callback(call):
             elif call.data == 'news':
                 bot.send_message(call.message.chat.id, 'Ищу новости...')
                 bot.send_message(call.message.chat.id, botlib.news())
+                bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
+            elif call.data == 'weathermoscow':
+                bot.send_message(call.message.chat.id, 'Ищу погоду в Москве...')
+                bot.send_message(call.message.chat.id, botlib.currentweather())
+                bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
+            elif call.data == 'forecastmoscow':
+                bot.send_message(call.message.chat.id, 'Ищу прогноз по Москве...')
+                bot.send_message(call.message.chat.id, botlib.forecastweather())
                 bot.send_message(call.message.chat.id, 'Выберите команду', reply_markup=keyboard)
             else:
                 mes = 'Неверная команда'
